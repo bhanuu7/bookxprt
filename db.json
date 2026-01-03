@@ -1,5 +1,3 @@
 {
-    "users":[
-        {"id": "Bhanu", "password": "Chinna@123"}
-    ]
+  "users": [{ "id": "Bhanu", "password": "Chinna@123" }]
 }
