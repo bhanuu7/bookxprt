@@ -1,3 +1,12 @@
 {
-  "users": [{ "id": "Bhanu", "password": "Chinna@123" }]
+  "users": [
+    {
+      "email": "bhanu@gmail.com",
+      "password": "Chinna@123"
+    },
+    {
+      "email" : "test",
+      "password": "213456y7u8"
+    }
+  ]
 }
