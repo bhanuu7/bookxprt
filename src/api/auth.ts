@@ -20,3 +20,7 @@ export const login = async ({ email, password }: Payload): Promise<any> => {
   }
   return user;
 };
+
+export const logout = async () => {
+  localStorage.removeItem('isAuthenticated');
+};

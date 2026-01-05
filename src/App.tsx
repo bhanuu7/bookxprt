@@ -1,25 +1,19 @@
-import { useEffect } from 'react';
-import { login } from './api/auth';
-import { useMutation } from '@tanstack/react-query';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import { ProtectedRoute } from './routes/ProtectedRoute';
+
 function App() {
-  const mutation = useMutation({
-    mutationFn: login,
-    retry: 1,
-    onSuccess(data, variables, onMutateResult, context) {
-      console.log('mutation success');
-    },
-  });
-  const handleSubmit = () => {
-    mutation.mutate({
-      email: 'bhanu@gmail.com',
-      password: '123456',
-    });
-  };
   return (
-    <div>
-      <h5>Hello world</h5>
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Dashboard />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
