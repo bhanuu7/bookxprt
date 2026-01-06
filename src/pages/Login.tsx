@@ -6,14 +6,12 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  Input,
   InputAdornment,
   TextField,
 } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import EmailIcon from '@mui/icons-material/Email';
 import HttpsIcon from '@mui/icons-material/Https';
-import { InputTwoTone, Password } from '@mui/icons-material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { login } from '../api/auth';
@@ -23,7 +21,7 @@ interface User {
   name: string;
   password: string;
 }
-
+// TO DO : Add form validation and error handling
 const Login = () => {
   const [userCreds, setUserCreds] = useState<User>({ name: '', password: '' });
   const [showPassword, setShowPassword] = useState<boolean>(false);
