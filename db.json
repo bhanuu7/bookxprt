@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "bhanu@gmail.com",
-      "password": "Chinna@123"
+      "password": "bookxprt123"
     },
     {
       "email": "test",
@@ -10,24 +10,6 @@
     }
   ],
   "employees": [
-    {
-      "id": 1,
-      "fullName": "Bhanu Prakash",
-      "gender": "male",
-      "dateOfBirth": "2020-01-15",
-      "state": "Telangana",
-      "status": "Active",
-      "image": ""
-    },
-    {
-      "id": 2,
-      "fullName": "Alice Johnson",
-      "gender": "female",
-      "dateOfBirth": "2019-03-22",
-      "state": "west bengal",
-      "status": "Inactive",
-      "image": ""
-    },
     {
       "id": "ce4c",
       "fullName": "Thanneeru Bhanuchandra",

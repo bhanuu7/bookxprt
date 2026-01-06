@@ -1,4 +1,6 @@
 import { ToggleButton, Box, ToggleButtonGroup } from '@mui/material';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
 
 const ToggleButtonGroupComponent = ({
   view,
@@ -8,56 +10,59 @@ const ToggleButtonGroupComponent = ({
   setView: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
-    <Box>
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <ToggleButtonGroup
         value={view}
         exclusive
         onChange={(_, newView) => newView && setView(newView)}
         sx={{
-          backgroundColor: '#e0e0e0',
-          padding: '2px',
-          borderRadius: '10px',
+          bgcolor: 'background.paper',
+          boxShadow: 1,
+          borderRadius: 2,
+          border: '1px solid',
+          borderColor: 'divider',
+          '& .MuiToggleButton-root': {
+            border: 'none',
+            py: 1.5,
+            px: 3,
+          },
         }}
       >
         <ToggleButton
           value="Dashboard"
           sx={{
-            border: 'none',
-            borderRadius: '10px',
             textTransform: 'none',
-            //px: 2,
+            fontWeight: 500,
+            gap: 1,
             '&.Mui-selected': {
-              backgroundColor: '#ffffff',
-              color: '#000',
-              boxShadow: 1,
-              outline: 'none',
-            },
-            '&.Mui-selected:hover': {
-              backgroundColor: '#ffffff',
+              bgcolor: 'primary.main',
+              color: 'primary.contrastText',
+              '&:hover': {
+                bgcolor: 'primary.dark',
+              },
             },
           }}
         >
+          <DashboardIcon fontSize="small" />
           Dashboard
         </ToggleButton>
 
         <ToggleButton
           value="Employees"
           sx={{
-            border: 'none',
-            borderRadius: '10px',
             textTransform: 'none',
-            px: 2,
+            fontWeight: 500,
+            gap: 1,
             '&.Mui-selected': {
-              backgroundColor: '#ffffff',
-              color: '#000',
-              boxShadow: 1,
-              outline: 'none',
-            },
-            '&.Mui-selected:hover': {
-              backgroundColor: '#ffffff',
+              bgcolor: 'primary.main',
+              color: 'primary.contrastText',
+              '&:hover': {
+                bgcolor: 'primary.dark',
+              },
             },
           }}
         >
+          <PeopleIcon fontSize="small" />
           Employees
         </ToggleButton>
       </ToggleButtonGroup>
