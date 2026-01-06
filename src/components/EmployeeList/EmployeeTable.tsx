@@ -11,16 +11,36 @@ import {
   Typography,
   Box,
   Avatar,
+  Switch,
 } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import RowActions from './RowActions';
 import { type EmployeeTableProps } from './types';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { updateEmployee } from '../../api/updateEmployee';
 
 const EmployeeTable = ({
   isLoading,
   employees,
   openEditDialog,
 }: EmployeeTableProps) => {
+  const queryClient = useQueryClient();
+
+  const statusMutation = useMutation({
+    mutationFn: updateEmployee,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['employees'] });
+    },
+  });
+
+  const handleStatusToggle = (employee: any) => {
+    const newStatus = employee.status === 'Active' ? 'Inactive' : 'Active';
+    statusMutation.mutate({
+      ...employee,
+      status: newStatus,
+    });
+  };
+
   if (isLoading) {
     return (
       <Paper>
@@ -87,11 +107,26 @@ const EmployeeTable = ({
                 {employee.gender}
               </TableCell>
               <TableCell>
-                <Chip
-                  label={employee.status}
-                  color={employee.status === 'Active' ? 'success' : 'error'}
-                  size="small"
-                />
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Switch
+                    checked={employee.status === 'Active'}
+                    onChange={() => handleStatusToggle(employee)}
+                    color={employee.status === 'Active' ? 'success' : 'error'}
+                    disabled={statusMutation.isPending}
+                  />
+                  <Typography
+                    variant="body2"
+                    fontWeight={500}
+                    sx={{
+                      color:
+                        employee.status === 'Active'
+                          ? 'success.main'
+                          : 'error.main',
+                    }}
+                  >
+                    {employee.status}
+                  </Typography>
+                </Box>
               </TableCell>
               <TableCell align="right">
                 <RowActions

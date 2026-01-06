@@ -103,7 +103,6 @@ const Login = () => {
         justifyContent: 'center',
         alignItems: 'center',
         bgcolor: 'grey.50',
-        p: 2,
       }}
     >
       <Card
