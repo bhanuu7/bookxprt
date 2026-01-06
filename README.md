@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# BookXprt - Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-featured employee management application built with React, TypeScript, and Material-UI.
 
-Currently, two official plugins are available:
+### Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+BookXprt is a comprehensive employee management system that allows users to manage employee records with features including:
 
-## React Compiler
+- **Authentication** - Secure login system with form validation
+- **Employee CRUD Operations** - Add, view, edit, and delete employee records
+- **Advanced Filtering** - Search employees by name and filter by gender/status
+- **Image Upload** - Employee photo upload with base64 conversion and preview
+- **Status Management** - Toggle employee active/inactive status with visual indicators
+- **Print Functionality** - Generate printable employee cards
+- **Dashboard Overview** - View statistics including total, active, and inactive employee counts
+- **Responsive Design** - Professional UI that works across all device sizes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+### Frontend
+- **React 19** - UI library
+- **TypeScript** - Type-safe development
+- **Material-UI (MUI) v7** - Component library and design system
+- **React Hook Form** - Form management with Zod validation
+- **TanStack Query (React Query)** - Data fetching and caching
+- **React Router v7** - Client-side routing
+- **Axios** - HTTP client
+- **Day.js** - Date handling
+- **React-to-Print** - Print functionality
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Backend
+- **JSON Server** - Mock REST API for development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Build Tools
+- **Vite** - Fast build tool and dev server
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Concurrently** - Run multiple commands simultaneously
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+##  Steps to Run the Project Locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn package manager
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Installation & Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd bookxprt
