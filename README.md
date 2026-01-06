@@ -1,6 +1,10 @@
-# BookXprt - Employee Management System
+ # BookXprt - Employee Management System
 
 A modern, full-featured employee management application built with React, TypeScript, and Material-UI.
+
+ # User credentials 
+ email: bhanu@gmail.com
+ password: bookxprt123
 
 ### Project Overview
 
